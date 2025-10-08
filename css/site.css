@@ -1,0 +1,43 @@
+
+:root{
+  --bg:#F7F4F1; --text:#1C1B19; --muted:#6F6A64; --line:#E8E1DA; --card:#FFFFFF;
+  --accent:#3E3026; --caramel:#CDAA84; --shadow:0 6px 28px rgba(20,16,12,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#1E1A17; --text:#FAF6F2; --muted:#BEB4AA; --line:#3B322B; --card:#26201B; --accent:#E7D7C8; }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:"Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased}
+.container{max-width:1140px;margin:0 auto;padding:0 16px}
+a{color:var(--accent);text-decoration:none}
+/* Top */
+.topbar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:linear-gradient(135deg, rgba(247,244,241,.96), rgba(247,244,241,.86) 45%, rgba(218,200,186,.6)); backdrop-filter:blur(8px)}
+:root.theme-dark .topbar{background:linear-gradient(135deg, rgba(30,26,23,.95), rgba(30,26,23,.9) 45%, rgba(68,55,46,.75))}
+.topbar .inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo-wrap{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(180deg, #FAF6F2, #EFE7DF); border:1px solid var(--line); box-shadow:var(--shadow)}
+:root.theme-dark .brand .logo-wrap{background:linear-gradient(180deg, #2A221D, #241D18)}
+.brand .logo{width:28px;height:28px}
+.brand .title{font-family:"Bodoni Moda", ui-serif, serif; font-weight:700; letter-spacing:.36px; font-size:22px}
+.nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.nav a{padding:9px 12px;border-radius:999px;border:1px solid transparent;transition:.25s all}
+.nav a.active{background:var(--caramel);color:#1B140F;border-color:var(--caramel)}
+.nav a:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+.hero{padding:76px 0 38px}
+.hero h1{font-family:"Bodoni Moda", ui-serif, serif;font-size:46px;line-height:1.15;margin:0 0 10px}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 .5px 0 rgba(0,0,0,.03)}
+footer{border-top:1px solid var(--line);padding:18px 0;margin-top:44px;color:var(--muted)}
+
+.clock-wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.clock-canvas{width:320px;height:320px;border-radius:50%;background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.7)); border:1px solid var(--line)}
+@media (max-width:600px){ .clock-canvas{width:240px;height:240px} }
+
+.reveal-logo{opacity:0;transform:translateY(8px) scale(.98);animation:reveal .55s cubic-bezier(.2,.8,.2,1) forwards}
+.reveal-content{opacity:0;transform:translateY(8px);animation:revealUp .55s .2s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes reveal{to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes revealUp{to{opacity:1;transform:translateY(0)}}
